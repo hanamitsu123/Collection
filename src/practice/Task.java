@@ -2,20 +2,22 @@ package practice;
 
 import java.time.LocalDate;
 
-public class Task { 
-		
-	private LocalDate date;
-	private String content;
+public class Task implements Comparable<Task> {
+	LocalDate date;
+	String task;
 
-	public Task(LocalDate date, String content) {
+	public Task(LocalDate date, String task) {
 		this.date = date;
-		this.content = content;
+		this.task = task;
 	}
-
-	public LocalDate getDate() {
-		return date;
+	
+	@Override
+	public int compareTo(Task other) {
+		return this.date.compareTo(other.date);
 	}
-	public String getContent() {
-		return content;
+	
+	@Override
+	public String toString() {
+		return date + ": " + task;
 	}
 }
